@@ -162,6 +162,13 @@ Below is a summary of some frequently used status codes and their meanings:
 ## Contributors
 - [cihat-kose](https://github.com/cihat-kose) – **Software Tester**  
 
+To contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a Pull Request.
 ---
 
 ## License
@@ -171,6 +178,5 @@ See the [LICENSE](LICENSE) file for details.
 ---
 
 ## Contact
-For questions, contributions, or issues, please open an issue in the repository.  
----
+For any questions or contributions, please open an issue in this repository.
 
