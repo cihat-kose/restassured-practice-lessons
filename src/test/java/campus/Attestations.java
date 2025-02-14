@@ -25,7 +25,7 @@ public class Attestations {
     // endpoint "/school-service/api/{...}" şeklinde
     // İçerik türü JSON (JavaScript Object Notation)
     // Kullanıcı adı turkeyts
-    // Şifre TechnoStudy123
+    // Şifre Techno2025.%
     // Rol Admin
 
     // İstek yapılandırması
@@ -44,14 +44,14 @@ public class Attestations {
 
 //        {
 //                "username": "turkeyts",
-//                "password": "TechnoStudy123",
+//                "password": "Techno2025.%",
 //                "rememberMe": "true"
 //        }
 
         // Kullanıcı kimlik bilgileri
         String userCredentialString="{\n" +
                 "    \"username\": \"turkeyts\",\n" +
-                "    \"password\": \"TechnoStudy123\",\n" +
+                "    \"password\": \"Techno2025.%\",\n" +
                 "    \"rememberMe\": \"true\"\n" +
                 "}";
 
@@ -59,13 +59,13 @@ public class Attestations {
         // Kullanıcı kimlik bilgileri için map
         Map<String, String> userCredentialMap = new HashMap<>();
         userCredentialMap.put("username", "turkeyts");
-        userCredentialMap.put("password", "TechnoStudy123");
+        userCredentialMap.put("password", "Techno2025.%");
         userCredentialMap.put("rememberMe", "true");
 
         // Kullanıcı kimlik bilgileri sınıfı
         UserCredential userCredentialClass = new UserCredential();
         userCredentialClass.setUsername("turkeyts");
-        userCredentialClass.setPassword("TechnoStudy123");
+        userCredentialClass.setPassword("Techno2025.%");
         userCredentialClass.setRememberMe("true");
 
         // Çerezler
