@@ -43,29 +43,29 @@ public class Attestations {
         baseURI = "https://test.mersys.io";
 
 //        {
-//                "username": "turkeyts",
-//                "password": "Techno2025.%",
+//                "username": "Campus25",
+//                "password": "Campus.2524",
 //                "rememberMe": "true"
 //        }
 
         // Kullanıcı kimlik bilgileri
         String userCredentialString="{\n" +
-                "    \"username\": \"turkeyts\",\n" +
-                "    \"password\": \"Techno2025.%\",\n" +
+                "    \"username\": \"Campus25\",\n" +
+                "    \"password\": \"Campus.2524\",\n" +
                 "    \"rememberMe\": \"true\"\n" +
                 "}";
 
 
         // Kullanıcı kimlik bilgileri için map
         Map<String, String> userCredentialMap = new HashMap<>();
-        userCredentialMap.put("username", "turkeyts");
-        userCredentialMap.put("password", "Techno2025.%");
+        userCredentialMap.put("username", "Campus25");
+        userCredentialMap.put("password", "Campus.2524");
         userCredentialMap.put("rememberMe", "true");
 
         // Kullanıcı kimlik bilgileri sınıfı
         UserCredential userCredentialClass = new UserCredential();
-        userCredentialClass.setUsername("turkeyts");
-        userCredentialClass.setPassword("Techno2025.%");
+        userCredentialClass.setUsername("Campus25");
+        userCredentialClass.setPassword("Campus.2524");
         userCredentialClass.setRememberMe("true");
 
         // Çerezler
