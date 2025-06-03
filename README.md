@@ -1,182 +1,132 @@
-# Rest Assured API Test Lab
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+# Rest Assured Practice Lessons
+
 ![RestAssured](https://img.shields.io/badge/RestAssured-6DB33F?style=for-the-badge&logo=java&logoColor=white)
+![Cucumber](https://img.shields.io/badge/Cucumber-23D96C?style=for-the-badge&logo=cucumber&logoColor=white)
 ![TestNG](https://img.shields.io/badge/TestNG-FF7300?style=for-the-badge&logo=testng&logoColor=white)
-![Hamcrest](https://img.shields.io/badge/Hamcrest-655c83?style=for-the-badge)
-![Jackson](https://img.shields.io/badge/Jackson-ff9933?style=for-the-badge)
-![JavaFaker](https://img.shields.io/badge/JavaFaker-3b5b3f?style=for-the-badge)
-![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
-
----
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 
 ## Table of Contents
-1. [Project Overview](#project-overview)
+
+1. [About the Project](#about-the-project)
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Configuration](#configuration)
 5. [Usage](#usage)
 6. [Folder Structure](#folder-structure)
 7. [Dependencies](#dependencies)
-8. [Reporting and Logs](#reporting-and-logs)
-9. [HTTP Status Codes](#http-status-codes)
-10. [Contributors](#contributors)
-11. [License](#license)
-12. [Contact](#contact)
+8. [Reporting](#reporting)
+9. [Contributing](#contributing)
+10. [License](#license)
 
----
+## About the Project
 
-## Project Overview
-The **Rest Assured API Test Lab** is an API testing framework designed to automate the testing of backend services.  
-This project uses **Rest Assured, TestNG, Hamcrest, and JavaFaker** to ensure the accuracy and stability of API endpoints.  
-It is tailored for educational purposes and testing REST APIs for the **Mersys Campus** application.
-
----
+The **Rest Assured Practice Lessons** framework is an API testing solution for the Petstore API, utilizing RestAssured for API interactions, Cucumber for BDD (Behavior-Driven Development), and TestNG for test execution. This framework tests essential API functionalities, such as adding, updating, retrieving, and deleting pets.
 
 ## Features
-- **Automated API Testing** – Supports CRUD operations with `GET`, `POST`, `PUT`, and `DELETE` requests.  
-- **Dynamic Data** – Uses JavaFaker to generate random data for testing.  
-- **Reusable Components** – Modular design for reusable request and response specifications.  
-- **Logging and Reporting** – Logs API requests and responses, with TestNG-generated HTML reports.  
-- **Parallel Execution** – Supports concurrent test execution for efficiency.  
 
----
+- **API Testing with RestAssured**: Provides methods for `GET`, `POST`, `PUT`, and `DELETE` requests.
+- **Behavior-Driven Development**: Uses Cucumber with Gherkin syntax to define scenarios in a human-readable format.
+- **Detailed Reporting**: Generates HTML and PDF reports using ExtentReports for comprehensive test results.
+- **Test Automation**: Tests include critical API functionality for the Petstore, including adding new pets, updating pet info, and verifying responses.
+
+### Scenarios Covered
+- **Get Pet by ID**: Retrieves pet information by ID and checks for a 200 response.
+- **Add New Pet**: Adds a new pet to the store and verifies the response data.
+- **Update Pet Info**: Updates existing pet details, confirming the status change.
+- **Delete Pet by ID**: Deletes a pet by ID and validates the deletion response.
 
 ## Installation
-### 1. Clone the Repository
-```bash
-git clone https://github.com/cihat-kose/restassured-api-test-lab.git
-```
 
-### 2. Import the Project (IntelliJ IDEA)
-1. **File > New > Project from Version Control**  
-2. Enter Repository URL:  
+1. **Clone the repository**:
    ```bash
-   https://github.com/cihat-kose/restassured-api-test-lab.git
+   git clone https://github.com/cihat-kose/restassured-practice-lessons.git
    ```
-3. **Maven auto-import** will download dependencies automatically.  
-
-> ⚙️ If dependencies are not downloaded automatically:
-```bash
-mvn clean install
-```
-
----
-
-### 3. Recommended Plugins (IntelliJ IDEA)
-- **TestNG**  
-- **Maven Helper**  
-- **REST Client**  
-- **Lombok** *(Optional if used in the project)*  
-
----
-
-### 4. Verify Installation
-Run the following command to verify that tests execute correctly:  
-```bash
-mvn test
-```
-
----
+2. **Open the project in IntelliJ IDEA**:
+   - Go to **File > Open** and select the project folder.
+   - Ensure the project is imported as a Maven project.
+3. **Install Plugins** (optional for IntelliJ IDEA):
+   - **Cucumber for Java** and **Gherkin** plugins for Cucumber syntax support.
+   - Go to **File > Settings > Plugins** and search for the plugins to install.
 
 ## Configuration
-### API Endpoint
-- **Base URI**: `https://test.mersys.io`  
-- **Authentication**: 
-```json
-{
-  "username": "turkeyts",
-  "password": "TechnoStudy123",
-  "rememberMe": true
-}
-```
-- **Endpoints**:
-  - **Create Attestation**: `/school-service/api/attestation`
-  - **Update Attestation**: `/school-service/api/attestation`
-  - **Delete Attestation**: `/school-service/api/attestation/{id}`
 
----
+- **cucumber.properties**: Configures Cucumber options. Located in `src/test/resources`.
+- **extent.properties**: Configures ExtentReports settings. Located in `src/test/resources`.
+  ```properties
+  extent.reporter.spark.start=true
+  extent.reporter.spark.out=test-output/SparkReport/Spark.html
+  extent.reporter.pdf.start=true
+  extent.reporter.pdf.out=PdfReport.pdf
+  ```
 
 ## Usage
-### Running Tests
-To run all tests:  
-```bash
-mvn clean test
-```
 
-Or, right-click on any test file in IntelliJ and select:  
-**Run 'ClassName'**
+1. **Run Tests**:
+   - To run tests with TestNG, right-click on `TestRunnerExtentReport` in the `runners` package and select **Run**.
+   - Alternatively, use Maven from the command line:
+     ```bash
+     mvn clean test
+     ```
 
----
+2. **Generate Reports**:
+   - Test results are generated in HTML (`test-output/SparkReport/Spark.html`) and PDF (`PdfReport.pdf`) formats.
 
 ## Folder Structure
+
 ```plaintext
-restassured-api-test-lab/
+restassured-practice-lessons/
 │
 ├── src/
 │   └── test/
 │       ├── java/
-│       │   ├── campus/                # Campus API tests
-│       │   └── reqresIn/              # Reqres API tests
+│       │   ├── features/             # Cucumber feature files
+│       │   │   └── PetstoreAPITests.feature
+│       │   ├── pages/                # API interaction classes
+│       │   │   └── APIPage.java
+│       │   ├── runners/              # TestNG runner classes
+│       │   │   └── TestRunnerExtentReport.java
+│       │   ├── stepDefinitions/      # Step definitions for Cucumber
+│       │       └── PetstoreAPISteps.java
 │       └── resources/
-│           └── testng.xml             # TestNG configuration
-├── target/                            # Build output
-├── images/                            # Project images
-│   └── HTTP_Status_Codes.png
-├── LICENSE                            # License file (MIT License)
-├── pom.xml                            # Maven dependencies
-└── README.md                          # Project documentation
+│           ├── cucumber.properties   # Cucumber configuration
+│           ├── extent.properties     # ExtentReports configuration
+│           ├── postman/              # Postman collection for API tests
+│           │   └── Petstore API Test.postman_collection.json
+│           └── testng.xml            # TestNG suite configuration
+├── target/                           # Build output
+└── pom.xml                           # Maven configuration file
 ```
-
----
 
 ## Dependencies
-Managed in `pom.xml`. Key dependencies include:  
 
-- **Rest Assured** – API testing  
-- **TestNG** – Test execution  
-- **Hamcrest** – Enhanced assertions  
-- **Jackson** – JSON parsing  
-- **JavaFaker** – Dynamic data generation  
+Dependencies are managed in the `pom.xml` file. Key dependencies include:
 
----
+- **RestAssured**: For making HTTP requests to test the API.
+- **Cucumber Java & TestNG**: Cucumber for BDD and TestNG for managing test execution.
+- **ExtentReports**: For generating detailed HTML and PDF reports.
+- **SLF4J**: Simple Logging Facade for Java, used for logging during testing.
 
-## Reporting and Logs
-- **HTML Reports** – Available at `target/surefire-reports/`.  
-- **Logs** – API requests and responses are logged for debugging.
+## Reporting
 
-```bash
-cat target/surefire-reports/emailable-report.html
-```
+Test reports are stored in `test-output` and `testReports` directories. Reports generated include:
 
----
+- **HTML Report**: Located at `test-output/SparkReport/Spark.html`.
+- **PDF Report**: Available at `PdfReport.pdf`.
 
-## HTTP Status Codes
-This project commonly encounters a variety of HTTP status codes in responses.  
-Below is a summary of some frequently used status codes and their meanings:
+These reports include test results, system information, and details of each test scenario.
 
-![HTTP Status Codes](./images/HTTP_Status_Codes.png)
+## Contributing
 
----
-
-## Contributors
-- [cihat-kose](https://github.com/cihat-kose) – **Software Tester**  
-
-To contribute:
+Contributions are welcome! To contribute:
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
 3. Commit your changes (`git commit -m 'Add new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
-5. Create a Pull Request.
----
+5. Open a Pull Request.
 
 ## License
-This project is licensed under the MIT License.  
-See the [LICENSE](LICENSE) file for details.  
 
----
-
-## Contact
-For any questions or contributions, please open an issue in this repository.
-
+This project is licensed under the MIT License - see the `LICENSE` file for details.
