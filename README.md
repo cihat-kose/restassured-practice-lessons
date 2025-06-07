@@ -55,14 +55,14 @@ The **Rest Assured Practice Lessons** framework is an API testing solution for t
 
 ## Configuration
 
-- **cucumber.properties**: Configures Cucumber options. Located in `src/test/resources`.
-- **extent.properties**: Configures ExtentReports settings. Located in `src/test/resources`.
-  ```properties
-  extent.reporter.spark.start=true
-  extent.reporter.spark.out=test-output/SparkReport/Spark.html
-  extent.reporter.pdf.start=true
-  extent.reporter.pdf.out=PdfReport.pdf
-  ```
+Only `extent.properties` is required for configuring ExtentReports. It is located in `src/test/resources`.
+
+```properties
+extent.reporter.spark.start=true
+extent.reporter.spark.out=test-output/SparkReport/Spark.html
+extent.reporter.pdf.start=true
+extent.reporter.pdf.out=PdfReport.pdf
+```
 
 ## Usage
 
@@ -72,6 +72,7 @@ The **Rest Assured Practice Lessons** framework is an API testing solution for t
      ```bash
      mvn clean test
      ```
+   - The tests send real HTTP requests to the public Petstore API, so an active internet connection is required.
 
 2. **Generate Reports**:
    - Test results are generated in HTML (`test-output/SparkReport/Spark.html`) and PDF (`PdfReport.pdf`) formats.
@@ -93,7 +94,6 @@ restassured-practice-lessons/
 │       │   ├── stepDefinitions/      # Step definitions for Cucumber
 │       │       └── PetstoreAPISteps.java
 │       └── resources/
-│           ├── cucumber.properties   # Cucumber configuration
 │           ├── extent.properties     # ExtentReports configuration
 │           ├── postman/              # Postman collection for API tests
 │           │   └── Petstore API Test.postman_collection.json
@@ -111,8 +111,8 @@ Dependencies are managed in the `pom.xml` file. Key dependencies include:
 - **ExtentReports**: For generating detailed HTML and PDF reports.
 - **SLF4J**: Simple Logging Facade for Java, used for logging during testing.
 
-> ⚠️ **Java Version Requirement**:  
-> This project uses Java 17 features such as *Text Blocks* (`"""`) and `.formatted()` method.  
+> ⚠️ **Java Version Requirement**:
+> This project uses Java 17 features such as *Text Blocks* (`"""`) and `.formatted()` method.
 > Please ensure your environment uses **Java 17 or higher**.
 
 ## Reporting
