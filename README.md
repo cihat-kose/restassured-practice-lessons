@@ -91,7 +91,7 @@ restassured-practice-lessons/
 │       │   │   └── APIPage.java
 │       │   ├── runners/              # TestNG runner classes
 │       │   │   └── TestRunnerExtentReport.java
-│       │   ├── stepDefinitions/      # Step definitions for Cucumber
+│       │   └── stepDefinitions/      # Step definitions for Cucumber
 │       │       └── PetstoreAPISteps.java
 │       └── resources/
 │           ├── extent.properties     # ExtentReports configuration
