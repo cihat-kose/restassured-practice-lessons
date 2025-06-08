@@ -8,13 +8,15 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PetstoreAPISteps {
 
-    private APIPage apiPage = new APIPage();
+    private final APIPage apiPage = new APIPage();
     private Response response;
+    private int petId;
 
     // Corresponds to: "Given I have the pet ID {int}"
     // Step: Sends a GET request to retrieve the pet with the given ID.
     @Given("I have the pet ID {int}")
     public void i_have_the_pet_ID(int petId) {
+        this.petId = petId;
         response = apiPage.getPetById(petId);
     }
 
@@ -22,21 +24,23 @@ public class PetstoreAPISteps {
     // Step: Sends a POST request to create a new pet with the given ID and name.
     @Given("I have a new pet with ID {int} and name {string}")
     public void i_have_a_new_pet_with_ID_and_name(int id, String name) {
+        this.petId = id;
         response = apiPage.addNewPet(id, name, "available");
     }
 
     // Corresponds to: "Given I have an existing pet with ID {int} and status {string}"
-    // Step: Prepares data to update the status of an existing pet.
+    // Step: Creates a pet with the specified status so it can be updated later.
     @Given("I have an existing pet with ID {int} and status {string}")
     public void i_have_an_existing_pet_with_ID_and_status(int id, String status) {
-        response = apiPage.updatePetStatus(id, status);
+        this.petId = id;
+        response = apiPage.addNewPet(id, "Buddy", status);
     }
 
     // Corresponds to: "When I update the pet status to {string}"
     // Step: Sends a PUT request to update the pet's status with a new value.
     @When("I update the pet status to {string}")
     public void i_update_the_pet_status_to(String newStatus) {
-        response = apiPage.updatePetStatus(100, newStatus);
+        response = apiPage.updatePetStatus(petId, newStatus);
     }
 
     // Corresponds to: "When I delete the pet by ID {int}"

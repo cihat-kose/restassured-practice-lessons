@@ -14,7 +14,7 @@ Feature: Petstore API Tests
 
   @API
   Scenario: Update Pet Info
-    Given I have an existing pet with ID 100 and status "sold"
+    Given I have an existing pet with ID 100 and status "available"
     When I update the pet status to "sold"
     Then I should receive a 200 status code
     And the response should contain the status "sold"
