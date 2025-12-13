@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 
 @CucumberOptions
         (
-                tags="@API",
+                tags = "@API",
                 features = "src/test/java/features",
                 glue = "stepDefinitions",
                 plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
@@ -15,7 +15,9 @@ import org.testng.annotations.AfterClass;
                 dryRun = false
         )
 
+
 public class TestRunnerExtentReport extends AbstractTestNGCucumberTests {
+
     @AfterClass
     public void writeExtentReport() {
         ExtentService.getInstance().setSystemInfo("Windows Username", "Bug Hunter");
@@ -27,4 +29,5 @@ public class TestRunnerExtentReport extends AbstractTestNGCucumberTests {
         ExtentService.getInstance().setSystemInfo("Department", "QA");
         ExtentService.getInstance().setSystemInfo("Project Version", "1.0.0");
     }
+
 }
