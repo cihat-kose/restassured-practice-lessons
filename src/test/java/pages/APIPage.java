@@ -15,7 +15,7 @@ public class APIPage {
     // GET request: Fetch a specific pet by ID
     public Response getPetById(int petId) {
         return given()
-                .pathParam("id",petId)
+                .pathParam("id", petId)
                 .when()
                 .get("/pets/{id}");
     }
@@ -44,30 +44,49 @@ public class APIPage {
                 """.formatted(id, name, status);
 
         return given()
-                .header("Content-Type","application/json")
+                .header("Content-Type", "application/json")
                 .body(requestBody)
                 .when()
                 .post("/pet");
     }
 
-//    {
-//        "id": 0,
-//            "category": {
-//        "id": 0,
-//                "name": "string"
-//    },
-//        "name": "doggie",
-//            "photoUrls": [
-//        "string"
-//  ],
-//        "tags": [
-//        {
-//            "id": 0,
-//                "name": "string"
-//        }
-//  ],
-//        "status": "available"
-//    }
+    // PUT request: Update an existing pet
+    public Response updatePetStatus(int id, String newStatus) {
+        String requestBody = """
+                     {
+                               "id": %s,
+                               "category": {
+                                 "id": 1,
+                                 "name": "Dogs"
+                               },
+                               "name": "doggie",
+                               "photoUrls": [
+                                 "string"
+                               ],
+                               "tags": [
+                                 {
+                                   "id": 1,
+                                   "name": "trained"
+                                 }
+                               ],
+                               "status": %s
+                             }
+                """.formatted(id, newStatus);
 
+        return given()
+                .header("Content-Type", "application/json")
+                .body(requestBody)
+                .when()
+                .put("/pet");
+
+    }
+
+    // DELETE request: Delete a specific pet by ID
+    public Response deletePetById(int petId) {
+        return given()
+                .pathParam("id", petId)
+                .when()
+                .delete("/pet/{id}");
+    }
 
 }

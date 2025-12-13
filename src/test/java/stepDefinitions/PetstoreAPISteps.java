@@ -46,39 +46,46 @@ public class PetstoreAPISteps {
         response = apiPage.addNewPet(id,"Buddy",status);
     }
 
+    // Corresponds to: "And the response should contain the name {string}"
+    // Step: Verifies if the name in the API response is correct.
     @And("The response should contain the name {string}")
-    public void theResponseShouldContainTheName(String arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void theResponseShouldContainTheName(String name) {
+        response.then().body("name",equalTo(name));
     }
 
+    // Corresponds to: "Given I have an existing pet with ID {int} and status {string}"
+    // Step: Creates a pet with the specified status so it can be updated later.
     @Given("I have an existing pet with ID {int} and status {string}")
-    public void ıHaveAnExistingPetWithIDAndStatus(int arg0, String arg1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void ıHaveAnExistingPetWithIDAndStatus(int id, String status) {
+        this.petID = id;
+        response = apiPage.addNewPet(id,"Buddy",status);
     }
 
+    // Corresponds to: "When I update the pet status to {string}"
+    // Step: Sends a PUT request to update the pet's status with a new value.
     @When("I update the pet status to {string}")
-    public void ıUpdateThePetStatusTo(String arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void ıUpdateThePetStatusTo(String newStatus) {
+        response = apiPage.updatePetStatus(petID,newStatus);
     }
 
+    // Corresponds to: "And the response should contain the status {string}"
+    // Step: Verifies if the status in the API response is correct.
     @And("The response should contain the status {string}")
-    public void theResponseShouldContainTheStatus(String arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void theResponseShouldContainTheStatus(String status) {
+        response.then().body("status",equalTo(status));
     }
 
+    // Corresponds to: "When I delete the pet by ID {int}"
+    // Step: Sends a DELETE request to remove the pet with the given ID.
     @When("I delete the pet by ID {int}")
-    public void ıDeleteThePetByID(int arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void ıDeleteThePetByID(int petID) {
+        response = apiPage.deletePetById(petID);
     }
 
+    // Corresponds to: "And the response should contain the message {string}"
+    // Step: Verifies if the message in the API response is correct (usually after delete operations).
     @And("The response should contain the message {string}")
-    public void theResponseShouldContainTheMessage(String arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void theResponseShouldContainTheMessage(String message) {
+        response.then().body("message",equalTo(message));
     }
 }

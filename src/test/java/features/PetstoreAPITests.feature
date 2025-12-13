@@ -6,7 +6,7 @@ Feature: Petstore API Tests
     And The response should contain the pet ID 2
 
   Scenario: Add new Pet
-    Given I have a new pet with ID 100 and name "Buddy"
+    Given I have a new pet with ID 2 and name "Buddy"
     Then I should receive a 200 status code
     And The response should contain the name "Buddy"
 
