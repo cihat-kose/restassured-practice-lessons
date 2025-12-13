@@ -20,6 +20,54 @@ public class APIPage {
                 .get("/pets/{id}");
     }
 
+    // POST request: Add a new pet
+    public Response addNewPet(int id, String name, String status) {
+        String requestBody = """
+                {
+                  "id": %s,
+                  "category": {
+                    "id": 0,
+                    "name": "Dogs"
+                  },
+                  "name": %s,
+                  "photoUrls": [
+                    "string"
+                  ],
+                  "tags": [
+                    {
+                      "id": 1,
+                      "name": "friendly"
+                    }
+                  ],
+                  "status": %s
+                }
+                """.formatted(id, name, status);
+
+        return given()
+                .header("Content-Type","application/json")
+                .body(requestBody)
+                .when()
+                .post("/pet");
+    }
+
+//    {
+//        "id": 0,
+//            "category": {
+//        "id": 0,
+//                "name": "string"
+//    },
+//        "name": "doggie",
+//            "photoUrls": [
+//        "string"
+//  ],
+//        "tags": [
+//        {
+//            "id": 0,
+//                "name": "string"
+//        }
+//  ],
+//        "status": "available"
+//    }
 
 
 }
